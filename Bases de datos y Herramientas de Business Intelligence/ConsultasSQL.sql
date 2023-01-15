@@ -1,3 +1,29 @@
+CREATE TABLE tarea_uned.operaciones_uned.merchants
+(
+  merchant_id varchar(30),
+  name varchar(50)
+)
+CREATE TABLE tarea_uned.operaciones_uned.orders
+(
+  order_id varchar(30),
+  created_at datetime,
+  status varchar(20),
+  amount float,
+  refunded_at datetime,
+  merchant_id varchar(30),
+  country varchar(20)
+ 
+)
+
+CREATE TABLE tarea_uned.operaciones_uned.refunds
+(
+  order_id varchar(30),
+   refunded_at datetime,
+  amount float
+ 
+ 
+)
+
 /*1. Realizamos una consulta donde obtengamos por país y estado de operación, el total de
 operaciones y su importe promedio. La consulta debe cumplir las siguientes condiciones:
 a. Operaciones más antiguas que el 01-07-2015.
