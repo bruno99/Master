@@ -89,3 +89,13 @@ comercios. De la tabla devoluciones vamos a traer el conteo de devoluciones por 
 y la suma del valor de las devoluciones.
 Una vez tengamos la consulta anterior, creamos una vista con el nombre orders_view
 dentro del esquema tarea_uned con esta consulta. */
+
+CREATE VIEW orders_view A
+SELECT o.*, m.name, subquery.devoluciones, subquery.valor_dev
+FROM "TAREA_UNED"."OPERACIONES_UNED"."ORDERS" o
+INNER JOIN "TAREA_UNED"."OPERACIONES_UNED"."MERCHANTS" m ON o.merchant_id=m.merchant_id
+INNER JOIN (SELECT order_id, COUNT(amount) AS devoluciones, SUM(amount) AS valor_dev
+            FROM "TAREA_UNED"."OPERACIONES_UNED"."REFUNDS"
+            GROUP BY  order_id)
+            AS subquery ON o.order_id = subquery.order_id
+
