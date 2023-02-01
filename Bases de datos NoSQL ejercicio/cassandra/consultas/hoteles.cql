@@ -1,0 +1,4 @@
+INSERT INTO vayahoteles.hoteles JSON '{"hotel_id":"hotel-vincci-de-santiago de compostela-55260dfb-0eab-4133-8ab4-0608ceaa5973","nombre":"Hotel Vincci de Santiago de Compostela","telefono":"929 886 798","direccion":"direccion de test","email_reserva":"ngela.Vliz@yahoo.com","sitio_web":"http://carla.com.es"}';
+
+INSERT INTO vayahoteles.hoteles JSON '{"hotel_id":"hotel-illunion-suites-de-jaen-73f80b71-1a06-465e-a648-2fe181718b7d","nombre":"Hotel Illunion Suites de Jaen","telefono":"901.637.922","direccion":"direccion de test","email_reserva":"Susana57@yahoo.com","sitio_web":"http://rodrigo.com.es"}';
+INSERT INTO vayahoteles.hoteles JSON '{"hotel_id":"hotel-gran-via-apartamentos-de-bilbao-07c51209-a803-4e50-8487-e4e2d4c3b493","nombre":"Hotel Gran Via Apartamentos de Bilbao","telefono":"951 573 530","direccion":"direccion de test","email_reserva":"Cristina_Ramn87@hotmail.com","sitio_web":"http://josé.com.es"}';
