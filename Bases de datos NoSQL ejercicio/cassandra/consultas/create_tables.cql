@@ -47,3 +47,13 @@ CREATE TABLE vayahoteles.complementos_por_habitacion (
   descripcion text,
   PRIMARY KEY ((hotel_id, numero_habitacion), nombre)
 ) WITH CLUSTERING ORDER BY (nombre ASC);
+
+CREATE TABLE vayahoteles.reservas_por_n (
+   id_huesped text,
+   n_confirmacion text,
+   n_habitacion int,
+   id_hotel text,
+   fecha_entrada timestamp,
+   fecha_salida timestamp,
+   PRIMARY KEY (id_huesped)
+);
