@@ -73,4 +73,12 @@ CREATE TABLE vayahoteles.reservas_por_h_f_n (
    PRIMARY KEY (id_hotel, fecha_entrada, id_huesped)
 );
 
-
+CREATE TABLE vayahoteles.huespedes (
+   id_huesped text,
+   nombre text,
+   apellidos text,
+   email text,
+   telefono text,
+   direccion text,   
+   PRIMARY KEY (id_huesped)
+);
