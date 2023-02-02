@@ -57,3 +57,20 @@ CREATE TABLE vayahoteles.reservas_por_n (
    fecha_salida timestamp,
    PRIMARY KEY (n_confirmacion)
 );
+
+CREATE TABLE vayahoteles.reservas_por_h_f_n (
+   n_confirmacion text,
+   id_huesped text,
+   nombre text,
+   apellidos text,
+   email text,
+   telefono text,
+   direccion text,
+   n_habitacion int,
+   id_hotel text,
+   fecha_entrada timestamp,
+   fecha_salida timestamp,
+   PRIMARY KEY (id_hotel, fecha_entrada, id_huesped)
+);
+
+
