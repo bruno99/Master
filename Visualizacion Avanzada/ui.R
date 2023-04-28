@@ -1,4 +1,3 @@
-
 library(shiny)
 library(shinythemes)
 library(ggplot2)
@@ -14,7 +13,7 @@ isciii <- read_csv("https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_
 fech_max <- max(isciii$fecha)
 
 cond <- {isciii$grupo_edad != "NC" &
-  isciii$sexo != "NC"} 
+    isciii$sexo != "NC"} 
 
 data_para_plot <- isciii[cond, ]
 
@@ -30,21 +29,21 @@ categoricas <- names(data_para_plot)[cats]
 shinyUI(
   navbarPage("Shiny Visualización COVID-19 en España",
              theme = shinytheme("united"),
-                   tabPanel("Introducción",
-                            mainPanel(
-                              h1("Ejemplo Visualización con R-shiny", align = "center"),
-                              h3("UNED, Visualización avanzada, Profesor: Pedro Concejero, 2023", align = "center"),
-                              p(""),
-                              h2("IMPORTANTE", align = "center"),
-                              h2("Recomendable resolución superior a 1280x1024 para visualizar gráficos \n
+             tabPanel("Introducción",
+                      mainPanel(
+                        h1("Ejemplo Visualización con R-shiny", align = "center"),
+                        h3("UNED, Visualización avanzada, Profesor: Pedro Concejero, 2023", align = "center"),
+                        p(""),
+                        h2("IMPORTANTE", align = "center"),
+                        h2("Recomendable resolución superior a 1280x1024 para visualizar gráficos \n
                                  sin tener que hacer scroll lateral", 
-                                 align = "center"),
-                              p(""),
-                              p("- Serie temporal de la variable elegida, en función de grupo de edad y fechas"),
-                              p("- Barplot o gráfico de barras por grupo edad y sexo con el total de casos eligiendo la gravedad"),
-                              p("- Dispersion"),
-                              p("")
-                              )),
+                           align = "center"),
+                        p(""),
+                        p("- Serie temporal de la variable elegida, en función de grupo de edad y fechas"),
+                        p("- Barplot o gráfico de barras por grupo edad y sexo con el total de casos eligiendo la gravedad"),
+                        p("- Dispersion"),
+                        p("")
+                      )),
              tabPanel("Olas COVID -series temporales",
                       sidebarPanel(
                         selectInput(inputId = 'y2', 
@@ -92,12 +91,16 @@ shinyUI(
                       )),
              
              tabPanel("Gráfico de dispersion",
-                      
+                      selectInput(inputId = "y3", 
+                                  label = "Elige lo que se representara", 
+                                  choices = c("total_hospitalizados", 
+                                              "total_uci", 
+                                              "total_fallecidos")),
                       mainPanel(
                         plotOutput(outputId = 'plot3',
                                    height = 1000,
                                    width = 1200)
+ 
                       )),
              
   ))
-
