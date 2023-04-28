@@ -1,5 +1,3 @@
-
-
 library(shiny)
 library(shinythemes)
 library(ggplot2)
@@ -17,8 +15,8 @@ isciii <- read_csv("https://cnecovid.isciii.es/covid19/resources/casos_hosp_uci_
 fech_max <- max(isciii$fecha)
 
 cond <- {isciii$fecha < fech_max & 
-  isciii$grupo_edad != "NC" &
-  isciii$sexo != "NC" }
+    isciii$grupo_edad != "NC" &
+    isciii$sexo != "NC" }
 
 
 
@@ -56,7 +54,7 @@ shinyServer(function(input, output) {
   
   # Para el barplot: 
   
-
+  
   output$plot <- renderPlot({
     
     # dodged bar charts
@@ -98,14 +96,23 @@ shinyServer(function(input, output) {
   
   output$plot3 <- renderPlot({
     
-    data_para_plot %>%
+    
+    if(input$y3 == 'total_hospitalizados' )
+      data_para_plot %>%
+      ggplot(aes(x = num_casos, y = num_hosp, color = sexo)) +
+      geom_point() 
+    
+    if(input$y3 == 'total_uci' )
+      data_para_plot %>%
+      ggplot(aes(x = num_casos, y = num_uci, color = sexo)) +
+      geom_point() 
+    
+    if(input$y3 == 'total_fallecidos' )
+      data_para_plot %>%
       ggplot(aes(x = num_casos, y = num_def, color = sexo)) +
-      geom_point() +
-      xlab("Total de contagiados") +
-      ylab("Total de fallecidos") +
-      ggtitle("Gráfico de dispersión por género")
+      geom_point() 
+     
     
   })
   
 })
-
